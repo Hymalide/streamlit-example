@@ -34,22 +34,16 @@ def plot_bars(selected_alias):
     st.write("Hover over the bars to see the values.")
 
         
-def fusion_alias_property(list1, list2):
-        #we will use only with list of same length, list2 = list of int
-        n = len(list1)
-
-        list2str = [str(int(list2[i])) for i in range(len)]
 
 
-
-        return [list1[i]+' -> '+list2str[i] for i in range(n)]
-
-def show_level(raw_alias):
+def show_level(raw_one_alias):
         if checked_property:
                 list_checked_property = df[checked_property].tolist()
-                return fusion_alias_property(raw_alias, list_checked_property) # define list_checked_property
+                index = [i for i in df.index where df[i,1] == raw_one_alias] #We have to remove first column in our csv doc
+                
+                return (raw_one_alias+' = ' + list_checked_property[index])
         else:
-                return(raw_alias)
+                return(raw_one_alias)
         
 # Create a adio button widget to highlight a quality
 checked_property = st.radio("Choose a property of interest to show each student level up on 10", df.columns.tolist()[1:])
