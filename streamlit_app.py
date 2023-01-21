@@ -14,6 +14,34 @@ forums](https://discuss.streamlit.io).
 
 In the meantime, below is an example of what you can do with just a few lines of code:
 """
+import streamlit as st
+import pandas as pd
+
+# Sample data
+data = {'alias': ['Alice', 'Bob', 'Charlie', 'David', 'Eve'],
+        'maths': [90, 80, 70, 60, 50],
+        'coding': [85, 95, 75, 65, 55]}
+
+df = pd.DataFrame(data)
+
+# Create a function to plot the data
+def plot_data(selected_alias):
+    filtered_data = df[df['alias'].isin(selected_alias)]
+    st.bar_chart(filtered_data).format({'maths': ',.2f', 'coding': ',.2f'})
+    st.write("Hover over the bars to see the values.")
+
+# Create a checkbox for selecting the alias
+alias_checkbox = st.multiselect("Select alias", df['alias'].tolist())
+
+# Show the chart
+if alias_checkbox:
+    plot_data(alias_checkbox)
+else:
+    st.write("Please select at least one alias.")
+
+
+
+
 data1 = pd.read_csv("group2.csv")
 color = st.radio('test bby',("blue", "green"))
 if color == "green":
