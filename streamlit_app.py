@@ -50,7 +50,7 @@ def show_level(raw_alias):
 checked_property = st.radio("Choose a property of interest to show each student level up on 10", df.columns.tolist()[1:])
 
 # Create a checkbox for selecting the students of the group
-alias_checkbox = st.multiselect("Choose up to 5 members to check the group characteristics", df['alias'].tolist(), format_func(show_level))
+alias_checkbox = st.multiselect("Choose up to 5 members to check the group characteristics", df['alias'].tolist(), format_func=show_level)
 
 # Show the chart
 if alias_checkbox:
