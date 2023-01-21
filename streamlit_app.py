@@ -40,8 +40,8 @@ def show_level(raw_one_alias):
         if checked_property:
                 list_checked_property = df[checked_property].tolist()
                 index = [i for i in df.index if df.iat[i,1] == raw_one_alias] #We have to remove first column in our csv doc
-                
-                return (raw_one_alias+' = ' + list_checked_property[index[0]])
+                return index[0]
+                #return (raw_one_alias+' = ' + list_checked_property[index[0]])
         else:
                 return(raw_one_alias)
         
