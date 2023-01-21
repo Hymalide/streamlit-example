@@ -25,12 +25,12 @@ data = {'alias': ['Alice', 'Bob', 'Charlie', 'David', 'Eve'],
 df = pd.DataFrame(data)
 
 # Create a function to plot the data
-def plot_data(selected_alias):
+def plot_bars(selected_alias):
     ploted_data = df[df['alias'].isin(selected_alias)]
     st.subheader("Maths")
-    st.bar_chart(ploted_data[['alias','maths']]).format({'maths': ',.2f'},key=1)
+    st.bar_chart(ploted_data[['maths']]).format({'maths': ',.2f'},key=1)
     st.subheader("Coding")
-    st.bar_chart(ploted_data[['alias','coding']]).format({'coding': ',.2f'},key=2)
+    st.bar_chart(ploted_data[['coding']]).format({'coding': ',.2f'},key=2)
     st.write("Hover over the bars to see the values.")
 
 # Create a checkbox for selecting the alias
@@ -38,7 +38,7 @@ alias_checkbox = st.multiselect("Choose up to 5 members to check the group chara
 
 # Show the chart
 if alias_checkbox:
-    plot_data(alias_checkbox)
+    plot_bars(alias_checkbox)
 else:
     st.write("Select at least one member")
 
