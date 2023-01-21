@@ -34,10 +34,16 @@ def plot_bars(selected_alias):
     st.write("Hover over the bars to see the values.")
 
         
-def fusion_alias_property(list1,list2):
+def fusion_alias_property(list1, int list list2):
         #we will use only with list of same length, list2 = list of int
+        if 
         n = len(list1)
-        list2str = [str(list2[i]) for i in range(len)]
+        try:
+                list2str = [str(list2[i]) for i in range(len)]
+        except TypeError:
+                print('not a list of int')
+                return None
+
         return [list1[i]+' -> '+list2str[i] for i in range(n)]
 
 def show_level(raw_alias):
