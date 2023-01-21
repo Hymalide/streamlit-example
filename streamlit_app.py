@@ -33,8 +33,24 @@ def plot_bars(selected_alias):
     st.bar_chart(ploted_data[['coding']]).format({'coding': ',.2f'})
     st.write("Hover over the bars to see the values.")
 
-# Create a checkbox for selecting the alias
-alias_checkbox = st.multiselect("Choose up to 5 members to check the group characteristics", df['alias'].tolist())
+        
+def fusion_alias_property(list1,list2):
+        #we will use only with list of same length
+        n = len(list1)
+        return [list1[i]+' -> 'list2[i] for i in range(n)]
+
+def show_level(raw_alias):
+        if checked_property:
+                list_checked_property = df[checked_property].tolist()
+                return fusion_alias_property(raw_alias, list_checked_property) # define list_checked_property
+        else:
+                return(raw_alias)
+        
+# Create a adio button widget to highlight a quality
+checked_property = st.radio("Choose a property of interest to show each student level up on 10", df[1:].tolist())
+
+# Create a checkbox for selecting the students of the group
+alias_checkbox = st.multiselect("Choose up to 5 members to check the group characteristics", df['alias'].tolist(), format_func(show_level))
 
 # Show the chart
 if alias_checkbox:
