@@ -39,6 +39,8 @@ def fusion_alias_property(list1, list2):
         n = len(list1)
         try:
                 list2str = [str(int(list2[i])) for i in range(len)]
+        except TypeError:
+                return None
 
 
         return [list1[i]+' -> '+list2str[i] for i in range(n)]
