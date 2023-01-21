@@ -28,9 +28,9 @@ df = pd.DataFrame(data)
 def plot_bars(selected_alias):
     ploted_data = df[df['alias'].isin(selected_alias)]
     st.subheader("Maths")
-    st.bar_chart(ploted_data[['maths']]).format({'maths': ',.2f'},key=1)
+    st.bar_chart(ploted_data[['maths']],key=1).format({'maths': ',.2f'})
     st.subheader("Coding")
-    st.bar_chart(ploted_data[['coding']]).format({'coding': ',.2f'},key=2)
+    st.bar_chart(ploted_data[['coding']],key=2).format({'coding': ',.2f'})
     st.write("Hover over the bars to see the values.")
 
 # Create a checkbox for selecting the alias
