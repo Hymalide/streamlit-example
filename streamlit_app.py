@@ -41,9 +41,9 @@ def show_level(raw_one_alias):
                 list_checked_property = df[checked_property].tolist()
                 index = [i for i in df.index if df.iat[i,1] == raw_one_alias] #We have to remove first column in our csv doc
                 
-                return (raw_one_alias+' = ' + list_checked_property[index[0]]
-        #else:
-                #return(raw_one_alias)
+                return (raw_one_alias+' = ' + list_checked_property[index[0]])
+        else:
+                return(raw_one_alias)
         
 # Create a adio button widget to highlight a quality
 checked_property = st.radio("Choose a property of interest to show each student level up on 10", df.columns.tolist()[1:])
