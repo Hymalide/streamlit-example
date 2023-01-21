@@ -34,7 +34,7 @@ def plot_bars(selected_alias):
     st.write("Hover over the bars to see the values.")
 
         
-def fusion_alias_property(list1, int list list2):
+def fusion_alias_property(list1, list2):
         #we will use only with list of same length, list2 = list of int
         if 
         n = len(list1)
