@@ -35,9 +35,10 @@ def plot_bars(selected_alias):
 
         
 def fusion_alias_property(list1,list2):
-        #we will use only with list of same length
+        #we will use only with list of same length, list2 = list of int
         n = len(list1)
-        return [list1[i]+' -> '+list2[i] for i in range(n)]
+        list2str = [str(list2[i]) for i in range(len)]
+        return [list1[i]+' -> '+list2str[i] for i in range(n)]
 
 def show_level(raw_alias):
         if checked_property:
