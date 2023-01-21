@@ -36,7 +36,6 @@ def plot_bars(selected_alias):
         
 def fusion_alias_property(list1, list2):
         #we will use only with list of same length, list2 = list of int
-        if 
         n = len(list1)
         try:
                 list2str = [str(list2[i]) for i in range(len)]
