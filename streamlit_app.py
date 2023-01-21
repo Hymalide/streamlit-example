@@ -41,7 +41,7 @@ def fusion_alias_property(list1, list2):
                 list2str = [str(list2[i]) for i in range(len)]
         except TypeError:
                 print('not a list of int')
-                return None
+                return type(list2[0])
 
         return [list1[i]+' -> '+list2str[i] for i in range(n)]
 
