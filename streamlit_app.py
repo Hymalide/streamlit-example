@@ -26,21 +26,21 @@ df = pd.DataFrame(data)
 
 # Create a function to plot the data
 def plot_data(selected_alias):
-    filtered_data = df[df['alias'].isin(selected_alias)]
+    ploted_data = df[df['alias'].isin(selected_alias)]
     st.subheader("Maths")
-    st.bar_chart(filtered_data[['alias','maths']]).format({'maths': ',.2f'})
+    st.bar_chart(ploted_data[['alias','maths']]).format({'maths': ',.2f'},key=1)
     st.subheader("Coding")
-    st.bar_chart(filtered_data[['alias','coding']]).format({'coding': ',.2f'})
+    st.bar_chart(ploted_data[['alias','coding']]).format({'coding': ',.2f'},key=2)
     st.write("Hover over the bars to see the values.")
 
 # Create a checkbox for selecting the alias
-alias_checkbox = st.multiselect("Select alias", df['alias'].tolist())
+alias_checkbox = st.multiselect("Choose up to 5 members to check the group characteristics", df['alias'].tolist())
 
 # Show the chart
 if alias_checkbox:
     plot_data(alias_checkbox)
 else:
-    st.write("Please select at least one alias.")
+    st.write("Select at least one member")
 
 
 
@@ -50,24 +50,3 @@ color = st.radio('test bby',("blue", "green"))
 if color == "green":
     st.write("this is green")
 
-
-with st.echo(code_location='below'):
-    total_points = st.slider("Number of points in spiral", 1, 5000, 2000)
-    num_turns = st.slider("Number of turns in spiral", 1, 100, 9)
-
-    Point = namedtuple('Point', 'x y')
-    data = []
-
-    points_per_turn = total_points / num_turns
-
-    for curr_point_num in range(total_points):
-        curr_turn, i = divmod(curr_point_num, points_per_turn)
-        angle = (curr_turn + 1) * 2 * math.pi * i / points_per_turn
-        radius = curr_point_num / total_points
-        x = radius * math.cos(angle)
-        y = radius * math.sin(angle)
-        data.append(Point(x, y))
-
-    st.altair_chart(alt.Chart(pd.DataFrame(data), height=500, width=500)
-        .mark_circle(color='#0068c9', opacity=0.5)
-        .encode(x='x:Q', y='y:Q'))
