@@ -20,9 +20,9 @@ import pandas as pd
 # Sample data
 data = {'alias': ['Alice', 'Bob', 'Charlie', 'David', 'Eve'],
         'maths': [90, 80, 70, 60, 50],
-        'coding': [85, 95, 75, 65, 55]}.set_index('alias')
+        'coding': [85, 95, 75, 65, 55]}
 
-df = pd.DataFrame(data)
+df = pd.DataFrame(data).set_index('alias')
 
 # Create a function to plot the data
 def plot_bars(selected_alias):
