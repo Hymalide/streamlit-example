@@ -22,11 +22,11 @@ data = {'alias': ['Alice', 'Bob', 'Charlie', 'David', 'Eve'],
         'maths': [90, 80, 70, 60, 50],
         'coding': [85, 95, 75, 65, 55]}
 
-df = pd.DataFrame(data).set_index('alias')
+df = pd.DataFrame(data)
 
 # Create a function to plot the data
 def plot_bars(selected_alias):
-    ploted_data = df[df['alias'].isin(selected_alias)]
+    ploted_data = df[df['alias'].isin(selected_alias)].set_index('alias')
     #create new ploted_data with sum and group by type
     st.subheader("Maths")
     st.bar_chart(ploted_data[['maths','coding']])
