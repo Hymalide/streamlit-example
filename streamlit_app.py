@@ -29,7 +29,7 @@ def plot_bars(selected_alias):
     ploted_data = df[df['alias'].isin(selected_alias)]
     #create new ploted_data with sum and group by type
     st.subheader("Maths")
-    st.bar_chart(ploted_data[['maths','coding']], y=df['alias'].isin(selected_alias))
+    st.bar_chart(ploted_data[['maths','coding']], y=selected_alias)
     #st.subheader("Coding")
     #st.bar_chart(ploted_data[['coding']])
     st.write("Hover over the bars to see the values.")
