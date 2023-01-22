@@ -29,9 +29,9 @@ def plot_bars(selected_alias):
     ploted_data = df[df['alias'].isin(selected_alias)]
     #create new ploted_data with sum and group by type
     st.subheader("Maths")
-    st.bar_chart(ploted_data[['maths']])
-    st.subheader("Coding")
-    st.bar_chart(ploted_data[['coding']])
+    st.bar_chart(ploted_data[['maths','coding]])
+    #st.subheader("Coding")
+    #st.bar_chart(ploted_data[['coding']])
     st.write("Hover over the bars to see the values.")
 
         
@@ -50,7 +50,7 @@ def show_level(raw_one_alias):
 checked_property = st.radio("Choose a property of interest to show each student level up on 10", [""]+df.columns.tolist()[1:])
 
 # Create a checkbox for selecting the students of the group
-alias_checkbox = st.multiselect("Choose up to 5 members to check the group characteristics", df['alias'].tolist(), format_func=show_level)
+alias_checkbox = st.multiselect("Choose up to 5 members to check the group characteristics", df['alias'].tolist())
 
 # Show the chart
 if alias_checkbox:
