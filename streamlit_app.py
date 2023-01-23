@@ -26,28 +26,29 @@ df = pd.DataFrame(data)
 
 # Create a function to plot the data
 def plot_bars(selected_alias):
-    ploted_data = df[df['alias'].isin(selected_alias)].set_index('alias')
+    ploted_data = df[df['alias'].isin(selected_alias)]
     #create new ploted_data with sum and group by type
-    st.subheader("Maths")
+    # st.subheader("Maths")
+    
     st.bar_chart(ploted_data[['maths','coding']])
     #st.subheader("Coding")
     #st.bar_chart(ploted_data[['coding']])
     st.write("Hover over the bars to see the values.")
 
         
+def plot_comparison(checked_property):
+        if len(checked_property) == 1:
+                df_property = df[['alias', checked_property]].sort_values(by=checked_property[0], ascending=False)
+        
 
 
-def show_level(raw_one_alias):
-        if checked_property:
-                list_checked_property = df[checked_property].tolist()
-                index = [i for i in df.index if df.iat[i,0] == raw_one_alias] #We have to remove first column in our csv doc
-                #mdr index est vide
-                return (raw_one_alias+' = ' + str(list_checked_property[index[0]]))
-        else:
-                return(raw_one_alias)
         
 # Create a adio button widget to highlight a quality
-checked_property = st.radio("Choose a property of interest to show each student level up on 10", [""]+df.columns.tolist()[1:])
+checked_property = st.multiselect("Choose a property of interest to show each student level up on 10", [""]+df.columns.tolist()[1:])
+
+if checked_property:
+        plot_comparison(checked_property)
+
 
 # Create a checkbox for selecting the students of the group
 alias_checkbox = st.multiselect("Choose up to 5 members to check the group characteristics", df['alias'].tolist())
@@ -61,8 +62,6 @@ else:
 
 
 
-data1 = pd.read_csv("group2.csv")
-color = st.radio('test bby',("blue", "green"))
-if color == "green":
-    st.write("this is green")
+
+
 
