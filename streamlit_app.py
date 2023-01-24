@@ -38,7 +38,8 @@ def plot_bars(selected_alias):
         
 def plot_comparison(checked_property):
         if len(checked_property) == 1:
-                df_property = df[['alias', checked_property]].sort_values(by=checked_property[0], ascending=False)
+                df_property = df[['alias', checked_property]].sort_values(by=checked_property, ascending=False)
+                compare_bar = st.bar_chart("Level of student ranked by the level on the first property selected",df_property)
         
 
 
