@@ -34,8 +34,8 @@ def plot_bars(selected_alias):
 
         
 def plot_comparison(checked_property):
-        if len(checked_property) == 1:
-                df_property = df[['alias', checked_property[0]]].sort_values(by=checked_property[0], ascending=False).set_index('alias')
+        if checked_property:
+                df_property = df[['alias']+checked_property].sort_values(by=checked_property[0], ascending=False).set_index('alias')
                 compare_bar = st.bar_chart(df_property[checked_property])
         
 
