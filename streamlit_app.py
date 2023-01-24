@@ -30,7 +30,7 @@ def plot_bars(selected_alias):
     #create new ploted_data with sum and group by type
     # st.subheader("Maths")
     
-    st.bar_chart(ploted_data[['maths','coding']].T, x='alias')
+    st.bar_chart(ploted_data[['maths','coding']].T)
     #st.subheader("Coding")
     #st.bar_chart(ploted_data[['coding']])
     st.write("Hover over the bars to see the values.")
