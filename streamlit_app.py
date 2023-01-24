@@ -5,17 +5,14 @@ import pandas as pd
 import streamlit as st
 
 """
-# Welcome to Streamlit!
+# Project: Creating the best groups
 
-Edit `/streamlit_app.py` to customize this app to your heart's desire :heart:
+This tool is meant to let you look for people with the qualities you are interested in in group-building and see caracteristic of the groups you create
 
-If you have any questions, checkout our [documentation](https://docs.streamlit.io) and [community
-forums](https://discuss.streamlit.io).
+This project is part of the course Information Visualization in KTH and uses anonymized data
 
-In the meantime, below is an example of what you can do with just a few lines of code:
+
 """
-import streamlit as st
-import pandas as pd
 
 # Sample data
 data = {'alias': ['Alice', 'Bob', 'Charlie', 'David', 'Eve'],
