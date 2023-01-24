@@ -19,8 +19,8 @@ import pandas as pd
 
 # Sample data
 data = {'alias': ['Alice', 'Bob', 'Charlie', 'David', 'Eve'],
-        'maths': [90, 80, 70, 60, 50],
-        'coding': [85, 95, 75, 65, 55]}
+        'maths': [9, 8, 7, 6, 5],
+        'coding': [5, 9, 7, 6, 2]}
 
 df = pd.DataFrame(data)
 
@@ -30,7 +30,7 @@ def plot_bars(selected_alias):
     #create new ploted_data with sum and group by type
     # st.subheader("Maths")
     
-    st.bar_chart(ploted_data[['maths','coding']].T)
+    st.bar_chart(ploted_data[['maths','coding']].T, height = 50)
     #st.subheader("Coding")
     #st.bar_chart(ploted_data[['coding']])
     st.write("Hover over the bars to see the values.")
