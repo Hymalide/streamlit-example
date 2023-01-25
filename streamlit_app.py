@@ -17,14 +17,7 @@ This project is part of the course Information Visualization in KTH and uses ano
 """
 #
 
-# continue loading the data with your excel file, I was a bit too lazy to build an Excel file :)
-df = pd.DataFrame(
-    [["Product A", 5.6, 7.8, 5], ["Product B", 5.8, 7.2, 4.9]],
-    columns=["Product", "Comfort", "Sound", "Calls"]
-)
 
-fig = px.bar(df, x="Product", y=["Comfort", "Sound", "Calls"], barmode='group', height=400)
-st.plotly_chart(fig)
 
 #DATAAAAAAA
 df1 = pd.read_csv("data.csv")
@@ -46,7 +39,7 @@ def plot_bars(selected_alias):
 def plot_comparison(checked_property):
         if checked_property:
                 df_property = df2[['Alias']+checked_property].sort_values(by=checked_property[0], ascending=False).set_index('Alias')
-                compare_bar = px.bar(df2, x ='Alias', y=checked_property, barmode='group', height=400)
+                compare_bar = px.bar(df2.sort_values(by=checked_property[0], ascending=False), x ='Alias', y=checked_property, barmode='group', height=400)
                 st.plotly_chart(compare_bar)
         
 
