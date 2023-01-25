@@ -30,7 +30,7 @@ This project is part of the course Information Visualization in KTH and uses ano
 data = {'alias': ['Alice', 'Bob', 'Charlie', 'David', 'Eve'],
         'maths': [9, 8, 7, 6, 5],
         'coding': [5, 9, 7, 6, 2]}
-df1 = pd.read_csv(data.csv)
+df1 = pd.read_csv("data.csv")
 df2 = pd.DataFrame(df1)
 
 df = pd.DataFrame(data)
