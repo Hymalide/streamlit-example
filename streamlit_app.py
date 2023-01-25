@@ -37,11 +37,11 @@ df = pd.DataFrame(data)
 
 # Create a function to plot the data
 def plot_bars(selected_alias):
-    ploted_data = df[df['alias'].isin(selected_alias)]
+    ploted_data = df2[df2['Alias'].isin(selected_alias)]
     #create new ploted_data with sum and group by type
     # st.subheader("Maths")
     
-    st.bar_chart(ploted_data[['maths','coding']].T)
+    st.bar_chart(ploted_data[['Information Visualization','Statistics','Maths','Art','Computer usage','Programming','Computer Graphics','Human-Computer Interaction ','UX','Communication','Collaboration','Code Repository']].T)
     #st.subheader("Coding")
     #st.bar_chart(ploted_data[['coding']])
     st.write("Hover over the bars to see the values.")
@@ -49,21 +49,21 @@ def plot_bars(selected_alias):
         
 def plot_comparison(checked_property):
         if checked_property:
-                df_property = df[['alias']+checked_property].sort_values(by=checked_property[0], ascending=False).set_index('alias')
+                df_property = df2[['Alias']+checked_property].sort_values(by=checked_property[0], ascending=False).set_index('Alias')
                 compare_bar = st.bar_chart(df_property[checked_property])
         
 
 
         
 # Create a adio button widget to highlight a quality
-checked_property = st.multiselect("Choose a property of interest to show each student level up on 10", [""]+df.columns.tolist()[1:])
+checked_property = st.multiselect("Choose a property of interest to show each student level up on 10", [""]+df2.columns.tolist()[1:12])
 
 if checked_property:
         plot_comparison(checked_property)
 
 
 # Create a checkbox for selecting the students of the group
-alias_checkbox = st.multiselect("Choose up to 5 members to check the group characteristics", df['alias'].tolist())
+alias_checkbox = st.multiselect("Choose up to 5 members to check the group characteristics", df2['Alias'].tolist())
 
 # Show the chart
 if alias_checkbox:
