@@ -46,7 +46,7 @@ def plot_bars(selected_alias):
 def plot_comparison(checked_property):
         if checked_property:
                 df_property = df2[['Alias']+checked_property].sort_values(by=checked_property[0], ascending=False).set_index('Alias')
-                compare_bar = px.bar(df2, x ='Alias', y=checked_property, barmode='group', heught=400)
+                compare_bar = px.bar(df2, x ='Alias', y=checked_property, barmode='group', height=400)
         
 
 
