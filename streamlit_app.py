@@ -18,24 +18,18 @@ This project is part of the course Information Visualization in KTH and uses ano
 #
 
 # continue loading the data with your excel file, I was a bit too lazy to build an Excel file :)
-#df = pd.DataFrame(
-    #[["Product A", 5.6, 7.8, 5], ["Product B", 5.8, 7.2, 4.9]],
-    #columns=["Product", "Comfort", "Sound", "Calls"]
-#)
+df = pd.DataFrame(
+    [["Product A", 5.6, 7.8, 5], ["Product B", 5.8, 7.2, 4.9]],
+    columns=["Product", "Comfort", "Sound", "Calls"]
+)
 
-#fig = px.bar(df, x="Product", y=["Comfort", "Sound", "Calls"], barmode='group', height=400)
-# st.dataframe(df) # if need to display dataframe
-#st.plotly_chart(fig)
+fig = px.bar(df, x="Product", y=["Comfort", "Sound", "Calls"], barmode='group', height=400)
+st.plotly_chart(fig)
 
-
-# Sample data
-data = {'alias': ['Alice', 'Bob', 'Charlie', 'David', 'Eve'],
-        'maths': [9, 8, 7, 6, 5],
-        'coding': [5, 9, 7, 6, 2]}
+#DATAAAAAAA
 df1 = pd.read_csv("data.csv")
 df2 = pd.DataFrame(df1)
 st.dataframe(df2)
-df = pd.DataFrame(data)
 
 # Create a function to plot the data
 def plot_bars(selected_alias):
