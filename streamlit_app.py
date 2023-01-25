@@ -32,7 +32,7 @@ data = {'alias': ['Alice', 'Bob', 'Charlie', 'David', 'Eve'],
         'coding': [5, 9, 7, 6, 2]}
 df1 = pd.read_csv("data.csv")
 df2 = pd.DataFrame(df1)
-
+st.dataframe(df2)
 df = pd.DataFrame(data)
 
 # Create a function to plot the data
