@@ -2,8 +2,9 @@ from collections import namedtuple
 import altair as alt
 import math
 import pandas as pd
+import plotly.express as px
 import streamlit as st
-import plotly as pl
+
 
 """
 # Project: Creating the best groups
