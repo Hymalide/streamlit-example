@@ -9,7 +9,7 @@ import streamlit as st
 """
 # Project: Creating the best groups
 
-This tool is meant to let you look for people with the qualities you are interested in in group-building and see caracteristic of the groups you create
+This tool is seperated in two parts: the first one allows you to look for people with the qualities you are interested in in group-building ordering alias depending on the first chosen skill. The second part allows you to create a group of 4 or 5 and to see the skills of the group.
 
 This project is part of the course Information Visualization in KTH and uses anonymized data
 
@@ -22,14 +22,14 @@ This project is part of the course Information Visualization in KTH and uses ano
 #DATAAAAAAA
 df1 = pd.read_csv("data.csv")
 df2 = pd.DataFrame(df1)
-st.dataframe(df2)
+#st.dataframe(df2)
 
 # Create a function to plot the data
 def plot_bars(selected_alias):
     ploted_data = df2[df2['Alias'].isin(selected_alias)]
     #create new ploted_data with sum and group by type
     # st.subheader("Maths")
-    
+    group_bar = px.bar(df2, x= ['Information Visualization','Statistics','Maths','Art','Computer usage','Programming','Computer Graphics','Human-Computer Interaction ','UX','Communication','Collaboration','Code Repository'], barmode='overlay', height=400)
     st.bar_chart(ploted_data[['Information Visualization','Statistics','Maths','Art','Computer usage','Programming','Computer Graphics','Human-Computer Interaction ','UX','Communication','Collaboration','Code Repository']].T)
     #st.subheader("Coding")
     #st.bar_chart(ploted_data[['coding']])
