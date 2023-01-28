@@ -32,7 +32,7 @@ def plot_bars(selected_alias):
     # st.subheader("Maths")
     st.write('Skills from each member of the group')
     st.write('You can select/unselect skills by clicking on the name in the legend on the right')
-    group_bar = px.bar(ploted_data, x= ['Information Visualization','Statistics','Maths','Art','Computer usage','Programming','Computer Graphics','Human-Computer Interaction ','UX','Communication','Collaboration','Code Repository'], y='Alias', height=400)
+    group_bar = px.bar(ploted_data, x= ['Information Visualization','Statistics','Maths','Art','Computer usage','Programming','Computer Graphics','Human-Computer Interaction ','UX','Communication','Collaboration','Code Repository'], height=400)
     st.plotly_chart(group_bar)
     
     test_bar = px.bar(tester.T)
