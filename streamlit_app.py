@@ -50,7 +50,7 @@ def plot_comparison(checked_property):
 
         
 # Create a adio button widget to highlight a quality
-checked_property = st.multiselect("Choose a property of interest to show each student level up on 10", [""]+df2.columns.tolist()[1:12])
+checked_property = st.multiselect("Choose a property of interest to show each student level up on 10, first skill selected will be used to order alias", [""]+df2.columns.tolist()[1:12])
 
 if checked_property:
         plot_comparison(checked_property)
