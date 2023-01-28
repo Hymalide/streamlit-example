@@ -42,7 +42,7 @@ def plot_bars(selected_alias):
         
 def plot_comparison(checked_property):
         if checked_property:
-                limit = st.slider('Choose amount of alias in the chart', [5, 41], step=5)
+                limit = st.slider('Choose amount of alias in the chart', 5, 41, step=5)
                 df_property = df2[['Alias']+checked_property].sort_values(by=checked_property[0], ascending=False).set_index('Alias')
                 compare_bar = px.bar(df2.sort_values(by=checked_property[0], ascending=False)[:limit], x ='Alias', y=checked_property, barmode='group', height=400)
                 st.plotly_chart(compare_bar)
