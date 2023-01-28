@@ -58,7 +58,7 @@ if checked_property:
 
 
 # Create a checkbox for selecting the students of the group
-alias_checkbox = st.multiselect("Choose up to 5 members to check the group characteristics", df2['Alias'].tolist())
+alias_checkbox = st.multiselect("Choose up to 5 members to check the group skills", df2['Alias'].tolist())
 
 # Show the chart
 if alias_checkbox:
