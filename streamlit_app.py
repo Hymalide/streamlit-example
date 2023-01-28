@@ -34,13 +34,11 @@ def plot_bars(selected_alias):
     st.write('You can select/unselect skills by clicking on the name in the legend on the right')
     group_bar = px.bar(ploted_data, x= ['Information Visualization','Statistics','Maths','Art','Computer usage','Programming','Computer Graphics','Human-Computer Interaction ','UX','Communication','Collaboration','Code Repository'], height=400)
     st.plotly_chart(group_bar)
-    
+    st.write('Addition of skill levels amoung the group')
     test_bar = px.bar(tester.T)
     st.plotly_chart(test_bar)
-    st.write('Addition of skill levels amoung the group')
-    st.bar_chart(ploted_data[['Information Visualization','Statistics','Maths','Art','Computer usage','Programming','Computer Graphics','Human-Computer Interaction ','UX','Communication','Collaboration','Code Repository']].T)
-    #st.subheader("Coding")
-    #st.bar_chart(ploted_data[['coding']])
+    
+    #st.bar_chart(ploted_data[['Information Visualization','Statistics','Maths','Art','Computer usage','Programming','Computer Graphics','Human-Computer Interaction ','UX','Communication','Collaboration','Code Repository']].T)
     st.write("Hover over the bars to see the values.")
 
         
