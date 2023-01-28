@@ -21,7 +21,7 @@ This project is part of the course Information Visualization in KTH and uses ano
 
 #DATAAAAAAA
 df1 = pd.read_csv("data.csv")
-df2 = pd.DataFrame(df1).set_index('Alias')
+df2 = pd.DataFrame(df1)
 #st.dataframe(df2)
 
 # Create a function to plot the data
@@ -35,7 +35,7 @@ def plot_bars(selected_alias):
     group_bar = px.bar(ploted_data, x= ['Information Visualization','Statistics','Maths','Art','Computer usage','Programming','Computer Graphics','Human-Computer Interaction ','UX','Communication','Collaboration','Code Repository'], y='Alias', height=400)
     st.plotly_chart(group_bar)
     
-    test_bar = px.bar(tester.T)
+    test_bar = px.bar(tester.T.set_index('Alias')
     st.plotly_chart(test_bar)
     st.write('Addition of skill levels amoung the group')
     st.bar_chart(ploted_data[['Information Visualization','Statistics','Maths','Art','Computer usage','Programming','Computer Graphics','Human-Computer Interaction ','UX','Communication','Collaboration','Code Repository']].T)
