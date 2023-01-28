@@ -27,7 +27,7 @@ df2 = pd.DataFrame(df1)
 # Create a function to plot the data
 def plot_bars(selected_alias):
     ploted_data = df2[df2['Alias'].isin(selected_alias)]
-    tester=ploted_data.set_index('Alias')
+    tester=ploted_data[['Information Visualization','Statistics','Maths','Art','Computer usage','Programming','Computer Graphics','Human-Computer Interaction ','UX','Communication','Collaboration','Code Repository']].set_index('Alias')
     #create new ploted_data with sum and group by type
     # st.subheader("Maths")
     st.write('Skills from each member of the group')
@@ -35,7 +35,7 @@ def plot_bars(selected_alias):
     group_bar = px.bar(ploted_data, x= ['Information Visualization','Statistics','Maths','Art','Computer usage','Programming','Computer Graphics','Human-Computer Interaction ','UX','Communication','Collaboration','Code Repository'], y='Alias', height=400)
     st.plotly_chart(group_bar)
     
-    test_bar = px.bar(tester, x =['Information Visualization','Statistics','Maths','Art','Computer usage','Programming','Computer Graphics','Human-Computer Interaction ','UX','Communication','Collaboration','Code Repository'])
+    test_bar = px.bar(tester)
     st.plotly_chart(test_bar)
     st.write('Addition of skill levels amoung the group')
     st.bar_chart(ploted_data[['Information Visualization','Statistics','Maths','Art','Computer usage','Programming','Computer Graphics','Human-Computer Interaction ','UX','Communication','Collaboration','Code Repository']].T)
