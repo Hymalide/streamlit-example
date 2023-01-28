@@ -27,7 +27,7 @@ df2 = pd.DataFrame(df1)
 # Create a function to plot the data
 def plot_bars(selected_alias):
     ploted_data = df2[df2['Alias'].isin(selected_alias)]
-    tester=ploted_data[['Information Visualization','Statistics','Maths','Art','Computer usage','Programming','Computer Graphics','Human-Computer Interaction ','UX','Communication','Collaboration','Code Repository']]
+    tester=ploted_data[['Information Visualization','Statistics','Maths','Art','Computer usage','Programming','Computer Graphics','Human-Computer Interaction ','UX','Communication','Collaboration','Code Repository']].set_index('Alias')
     #create new ploted_data with sum and group by type
     # st.subheader("Maths")
     st.write('Skills from each member of the group')
