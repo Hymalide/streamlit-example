@@ -30,6 +30,7 @@ def plot_bars(selected_alias):
     #create new ploted_data with sum and group by type
     # st.subheader("Maths")
     group_bar = px.bar(ploted_data, x= ['Information Visualization','Statistics','Maths','Art','Computer usage','Programming','Computer Graphics','Human-Computer Interaction ','UX','Communication','Collaboration','Code Repository'], barmode='overlay', height=400)
+    st.plotly_chart(group_bar)
     st.bar_chart(ploted_data[['Information Visualization','Statistics','Maths','Art','Computer usage','Programming','Computer Graphics','Human-Computer Interaction ','UX','Communication','Collaboration','Code Repository']].T)
     #st.subheader("Coding")
     #st.bar_chart(ploted_data[['coding']])
