@@ -45,6 +45,7 @@ def plot_bars(selected_alias):
 def plot_comparison(checked_property):
         if checked_property:
                 limit = st.slider('Choose amount of alias in the chart', 5, 41, step=5)
+                
                 df_property = df2[['Alias']+checked_property].sort_values(by=checked_property[0], ascending=False).set_index('Alias')
                 compare_bar = px.bar(df2.sort_values(by=checked_property[0], ascending=False)[:limit], x ='Alias', y=checked_property, barmode='group', height=400)
                 st.plotly_chart(compare_bar)
@@ -52,14 +53,20 @@ def plot_comparison(checked_property):
 
 
         
-# Create a adio button widget to highlight a quality
+#selection parts
+
+st.title('Selecting skills to choose members of interest')
+
+# Create a checkbox for selecting skills of inetrest
 checked_property = st.multiselect("Choose a property of interest to show each student level up on 10, first skill selected will be used to order alias", [""]+df2.columns.tolist()[1:12])
+st.write('The first selected skills will be used to rank Alias')
 
 if checked_property:
         plot_comparison(checked_property)
 
 
 # Create a checkbox for selecting the students of the group
+st.title('Creating groups')
 alias_checkbox = st.multiselect("Choose up to 5 members to check the group skills", df2['Alias'].tolist())
 
 # Show the chart
