@@ -34,9 +34,11 @@ def plot_bars(selected_alias):
     st.write('You can select/unselect skills by clicking on the name in the legend on the right')
     group_bar = px.bar(ploted_data, x= ['Information Visualization','Statistics','Maths','Art','Computer usage','Programming','Computer Graphics','Human-Computer Interaction ','UX','Communication','Collaboration','Code Repository'], height=400)
     st.plotly_chart(group_bar)
+    st.write('Values for each skill for the selected Alias')
     st.write('Addition of skill levels amoung the group')
     test_bar = px.bar(tester.T)
     st.plotly_chart(test_bar)
+    st.write('Addition of the values for each skill of all the selected Alias')
     st.write("Hover over the bars to see the values")
 
         
@@ -48,6 +50,7 @@ def plot_comparison(checked_property):
                 df_property = df2[['Alias']+checked_property].sort_values(by=checked_property[0], ascending=False).set_index('Alias')
                 compare_bar = px.bar(df2.sort_values(by=checked_property[0], ascending=False)[:limit], x ='Alias', y=checked_property, barmode='group', height=400)
                 st.plotly_chart(compare_bar)
+                st.write('Values of each selected skills for the top ' limit ' Alias')
                 st.write("Hover over the bars to see the values")
         
 
