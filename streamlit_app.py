@@ -50,7 +50,7 @@ def plot_comparison(checked_property):
                 df_property = df2[['Alias']+checked_property].sort_values(by=checked_property[0], ascending=False).set_index('Alias')
                 compare_bar = px.bar(df2.sort_values(by=checked_property[0], ascending=False)[:limit], x ='Alias', y=checked_property, barmode='group', height=400)
                 st.plotly_chart(compare_bar)
-                st.write('Values of each selected skills for the top ' limit ' Alias')
+                st.write('Values of each selected skills for the top Alias')
                 st.write("Hover over the bars to see the values")
         
 
